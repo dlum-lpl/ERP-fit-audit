@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Session-only admin editor for the Applivon Business Automation Audit." />
+  <title>Audit CMS · Applivon</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="cms-header">
+    <a class="brand" href="../index.html" aria-label="Back to Applivon audit tool">
+      <span class="brand-mark">A</span>
+      <span>applivon<span class="brand-dot">.</span></span>
+    </a>
+    <div class="header-right">
+      <span class="header-title">Audit CMS</span>
+      <span class="session-badge"><i></i> Session only</span>
+    </div>
+  </header>
+
+  <main class="cms-shell">
+    <section class="cms-intro">
+      <div>
+        <p class="eyebrow">Content administration</p>
+        <h1>Shape the questions that power the audit.</h1>
+        <p class="intro-copy">Edit the diagnostic content, answer options and score values for the current browser session. Changes are reflected in the preview on this page.</p>
+      </div>
+      <div class="intro-actions">
+        <button id="reset-button" class="button button-secondary" type="button">Reset session</button>
+      </div>
+    </section>
+
+    <section class="project-bar" aria-labelledby="project-title">
+      <div class="project-fields">
+        <div>
+          <p class="eyebrow">Project workspace</p>
+          <h2 id="project-title">Save and create an audit project</h2>
+        </div>
+        <label class="project-name-label" for="project-name">Project name<input id="project-name" type="text" placeholder="e.g. Retail Operations Audit" /></label>
+        <label class="saved-project-label" for="saved-projects">Saved projects<select id="saved-projects"><option value="">No saved projects yet</option></select></label>
+      </div>
+      <div class="project-actions">
+        <button id="save-project-button" class="button button-secondary" type="button">Save edited data</button>
+        <button id="create-files-button" class="button button-primary" type="button">Create project folder</button>
+        <button id="download-files-button" class="download-button" type="button">Save index.html to a chosen location</button>
+      </div>
+      <p id="project-message" class="project-message" role="status">Enter a name, then choose the folder containing the shared styles.css and script.js when creating the project.</p>
+      <p id="file-support" class="file-support"></p>
+    </section>
+
+    <section class="stats-row" aria-label="Audit content summary">
+      <div class="stat-card"><span class="stat-label">Categories</span><strong id="category-count">0</strong><span>audit areas</span></div>
+      <div class="stat-card"><span class="stat-label">Questions</span><strong id="question-count">0</strong><span>diagnostic prompts</span></div>
+      <div class="stat-card"><span class="stat-label">Options</span><strong id="option-count">0</strong><span>answer choices</span></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="category-sidebar" aria-label="Audit categories">
+        <div class="sidebar-heading"><div><p class="eyebrow">Audit structure</p><h2>Categories</h2></div><span id="sidebar-count" class="sidebar-count">0</span></div>
+        <nav id="category-nav" class="category-nav"></nav>
+      </aside>
+
+      <section class="editor-panel" aria-labelledby="editor-title">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Category editor</p><h2 id="editor-title">Process automation</h2></div>
+          <span id="save-status" class="save-status" role="status">Ready to edit</span>
+        </div>
+        <div class="category-fields">
+          <label class="field-label" for="category-title-input">Category name<input id="category-title-input" type="text" /></label>
+          <label class="field-label" for="category-description-input">Category description<textarea id="category-description-input" rows="2"></textarea></label>
+        </div>
+        <div class="questions-heading"><div><p class="eyebrow">Diagnostic prompts</p><h3>Questions &amp; options</h3></div><button id="add-question-button" class="button button-primary small-button" type="button">+ Add question</button></div>
+        <div id="questions-editor" class="questions-editor"></div>
+      </section>
+
+      <aside class="preview-panel" aria-labelledby="preview-title">
+        <div class="panel-heading preview-heading"><div><p class="eyebrow">Live preview</p><h2 id="preview-title">How it appears</h2></div><span class="preview-dot">●</span></div>
+        <div id="preview-content" class="preview-content"></div>
+        <p class="preview-note">This preview uses the edited content in this session. The main audit tool’s source files remain unchanged.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="cms-footer"><span>Applivon Audit CMS</span><span>Plain HTML · CSS · JavaScript</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
